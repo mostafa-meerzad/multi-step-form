@@ -3,7 +3,8 @@ import StepOne from "./stepOne/StepOne";
 import StepTwo from "./stepTwo/StepTwo";
 import StepThree from "./stepThree/StepThree";
 import StepFour from "./stepFour/StepFour";
-const Form = () => {
+import { useState } from "react";
+const Form = ({step}) => {
   const {
     register,
     handleSubmit,
@@ -15,16 +16,30 @@ const Form = () => {
     console.log(data);
   };
 
-  errors;
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} className="form">
-      <StepOne register={register} />
 
-      <StepTwo register={register}/>
-
-      <StepThree register={register}/>
-      <StepFour/>
-    </form>
-  );
+  if (step === 1)
+    return (
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
+        <StepOne register={register} />
+      </form>
+    );
+  else if (step === 2)
+    return (
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
+        <StepTwo register={register} />
+      </form>
+    );
+  else if (step === 3)
+    return (
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
+        <StepThree register={register} />
+      </form>
+    );
+  else
+    return (
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
+        <StepFour />
+      </form>
+    );
 };
 export default Form;

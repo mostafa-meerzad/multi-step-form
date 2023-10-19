@@ -10,14 +10,14 @@ const StepOne = ({ register }) => {
         </p>
       </header>
 
-      {stepOneData.map(({ name, label, placeholder }) => (
+      {stepOneData.map(({ name, label, placeholder, type }) => (
         <label htmlFor={name} className="form-step-one__input" key={name}>
           {label}
           <input
             id={name}
-            type="text"
+            type={type}
             placeholder={placeholder}
-            {...register("name")}
+            {...register(name)}
           />
           <span className="form-step-one__error form-step-one__error--active">
             this field is required
@@ -27,6 +27,4 @@ const StepOne = ({ register }) => {
     </div>
   );
 };
-
-// StepOne.propTypes = {register:propTypes.object}
 export default StepOne;

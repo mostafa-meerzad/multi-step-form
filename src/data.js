@@ -20,17 +20,20 @@ const stepOneData = [
   {
     label: "Name",
     placeholder: "e.g. Stephen King",
-    type:"text"
+    type:"text",
+    name:"name"
   },
   {
     label: "Email Address",
     placeholder: "e.g. stephenking@lorem.com",
-    type:"email"
+    type:"email",
+    name:"email",
   },
   {
     label: "Phone Number",
     placeholder: "e.g. +1 234 567 890",
-    type:"text"
+    type:"text",
+    name:"phone"
   }
 ]
 

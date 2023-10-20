@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { stepTwoData } from "../../../data";
 
-const StepTwo = ({ register }) => {
+const StepTwo = ({ register, handlePeriod, period, setValue }) => {
+  const [plan, setPlan] = useState("");
   return (
     <div className="form-step-two">
       <header className="form-header">
@@ -11,17 +13,49 @@ const StepTwo = ({ register }) => {
       </header>
 
       {stepTwoData.map(({ img, price, title, freeMonths }) => (
-        <label htmlFor={title} className="form-plan" key={title}>
-          <img src={img} alt="" className="form-plan__img" />
+        <label
+          htmlFor={title}
+          className={
+            plan === title ? "form-plan form-plan--active" : "form-plan"
+          }
+          key={title}
+          onClick={() => {
+            setPlan(title);
+            setValue("cost", price[period]);
+          }}
+        >
+          <img src={img} alt={title} className="form-plan__img" />
           <h3 className="form-plan__title">{title}</h3>
-          <p className="form-plan__cost">{price.monthly}</p>
-          <input id={title} type="checkbox" {...register(title)} />
+          <p className="form-plan__cost">
+            ${price[period]}/{period === "monthly" ? "mo" : "yr"}
+          </p>
+          {period === "yearly" && (
+            <p className="form-plan__free-months">{freeMonths}</p>
+          )}
+          <input id={title} type="radio" value={title} {...register("plan")} />
         </label>
       ))}
       <div className="period-change">
-        <span>Monthly</span>
-        <div className="period-change__btn period-change__btn--yearly period-change__btn--monthly"></div>
-        <span>Yearly</span>
+        <input type="hidden" {...register("cost")} />
+        <input type="hidden" {...register("period")} value={period} />
+        <button type="button" onClick={() => handlePeriod("monthly")}>
+          Monthly
+        </button>
+        <div
+          className={
+            period === "monthly"
+              ? " period-change__btn period-change__btn--monthly"
+              : "period-change__btn period-change__btn--yearly"
+          }
+        ></div>
+        <button
+          type="button"
+          onClick={() => {
+            handlePeriod("yearly");
+          }}
+        >
+          Yearly
+        </button>
       </div>
     </div>
   );

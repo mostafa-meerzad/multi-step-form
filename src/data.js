@@ -42,8 +42,8 @@ const stepTwoData = [
     img:arcade,
     title: "Arcade",
     price:{
-      monthly:"$9/mo",
-      yearly:"$90/yr",
+      monthly:9,
+      yearly:90,
     }, 
     freeMonths: "2 months free"
   },
@@ -51,8 +51,8 @@ const stepTwoData = [
     img:advanced,
     title: "Advanced",
     price:{
-      monthly:"$12/mo",
-      yearly:"$120/yr",
+      monthly:12,
+      yearly:120,
     }, 
     freeMonths: "2 months free"
   },
@@ -60,8 +60,8 @@ const stepTwoData = [
     img:pro,
     title: "Pro",
     price:{
-      monthly:"$15/mo",
-      yearly:"$150/yr",
+      monthly:15,
+      yearly:150,
     }, 
     freeMonths: "2 months free"
   },
@@ -73,24 +73,24 @@ const stepThreeData = [
     title:"Online service",
     desc: "Access to multiplayer games",
     price:{
-      monthly: "+$1/mo",
-      yearly:"+$10/yr",
+      monthly: 1,
+      yearly:10,
     }
   },
   {
     title:"Larger storage",
     desc: "Extra 1TB of cloud save",
     price:{
-      monthly: "+$2/mo",
-      yearly:"+$20/yr",
+      monthly: 2,
+      yearly:20,
     }
   },
   {
     title:"Customizable Profile",
     desc: "Custom theme on your profile",
     price:{
-      monthly: "+$2/mo",
-      yearly:"+$20/yr",
+      monthly: 2,
+      yearly:20,
     }
   },
 

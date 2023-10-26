@@ -1,6 +1,6 @@
 import { stepThreeData } from "../../../data";
 
-const StepThree = ({ register, period }) => {
+const StepThree = ({ register }) => {
   return (
     <div className="form-step-three">
       <header className="form-header">
@@ -15,9 +15,9 @@ const StepThree = ({ register, period }) => {
           <h3 className="form-addon__title">{title}</h3>
 
           <p className="form-addon__desc"> {desc}</p>
-          <p className="form-addon__cost">+${price[period]}/{period === "monthly" ? "mo":"yr"}</p>
+          <p className="form-addon__cost">{price.monthly}</p>
 
-          <input id={title} type="checkbox" {...register(`addons.${title}`)} />
+          <input id={title} type="checkbox" {...register} />
         </label>
       ))}
     </div>

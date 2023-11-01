@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { stepTwoData } from "../../../data";
 
-const StepTwo = ({ register, handlePeriod, period, setValue }) => {
+const StepTwo = ({ register, handlePeriod, period, setValue, errors }) => {
   const [plan, setPlan] = useState("");
+
   return (
     <div className="form-step-two">
       <header className="form-header">
@@ -32,9 +33,10 @@ const StepTwo = ({ register, handlePeriod, period, setValue }) => {
           {period === "yearly" && (
             <p className="form-plan__free-months">{freeMonths}</p>
           )}
-          <input id={title} type="radio" value={title} {...register("plan")} />
+          <input id={title} type="radio" value={title} {...register("plan", {required:true})} />
         </label>
       ))}
+
       <div className="period-change">
         <input type="hidden" {...register("cost")} />
         <input type="hidden" {...register("period")} value={period} />
@@ -57,6 +59,9 @@ const StepTwo = ({ register, handlePeriod, period, setValue }) => {
           Yearly
         </button>
       </div>
+      <p style={errors["plan"] ? {color:"red", visibility:"visible"}: {color:"green", visibility:"hidden"}}>
+        you need to select a plan
+      </p>
     </div>
   );
 };

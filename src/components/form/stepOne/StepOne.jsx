@@ -1,6 +1,6 @@
 import { stepOneData } from "../../../data";
 
-const StepOne = ({ register }) => {
+const StepOne = ({ register, errors }) => {
   return (
     <div className="form-step-one">
       <header className="form-header">
@@ -11,15 +11,27 @@ const StepOne = ({ register }) => {
       </header>
 
       {stepOneData.map(({ name, label, placeholder, type }) => (
-        <label htmlFor={name} className="form-step-one__input" key={name}>
+        <label
+          htmlFor={name}
+          className={
+            errors[name]
+              ? "form-step-one__input form-step-one__input--error"
+              : "form-step-one__input"
+          }
+          key={name}
+        >
           {label}
           <input
             id={name}
             type={type}
             placeholder={placeholder}
-            {...register(name)}
+            {...register(name, { required: true })}
           />
-          <span className="form-step-one__error form-step-one__error--active">
+          <span
+            style={
+              errors[name] ? { display: "inline-block" } : { display: "none" }
+            }
+          >
             this field is required
           </span>
         </label>

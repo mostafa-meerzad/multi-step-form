@@ -1,0 +1,155 @@
+@use "./variables";
+.form {
+  display: flex;
+  flex-direction: column;
+  //   min-height: 100svh;
+  background-color: variables.$magnolia;
+
+  &-content {
+    position: relative;
+    top: -4.5rem;
+    margin-inline: 1.5rem;
+    // margin-bottom: 2rem;
+  }
+
+  &-buttons {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.form-steps {
+  height: 9.5rem;
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.7rem;
+
+  background-image: url("/bg-sidebar-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .form-step {
+    &__num {
+      width: 2rem;
+      height: 2rem;
+      display: grid;
+      place-content: center;
+      color: variables.$alabaster;
+      border: 1.5px solid variables.$alabaster;
+      border-radius: 50%;
+
+      font-size: 0.9rem;
+      font-weight: bold;
+
+      &--active {
+        background-color: variables.$light-blue;
+        border-color: variables.$light-blue;
+        color: variables.$marine-blue;
+      }
+    }
+    &__title,
+    &__desc {
+      display: none;
+    }
+  }
+}
+
+.form-content {
+  padding: 1rem 1.5rem 2.5em;
+  border-radius: 0.7rem;
+  background-color: variables.$alabaster;
+  // box-shadow: 0px 8px 90px -12px hsl(231, 11%, 63%);
+  box-shadow: 0px 20px 88px -35px hsl(231, 11%, 63%);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: variables.$white;
+
+  &__btn {
+    padding: 1rem;
+    background-color: transparent;
+    color: variables.$cool-gray;
+    border-radius: 0.3rem;
+    text-transform: capitalize;
+    font-size: 0.91rem;
+    font-weight: 500;
+    cursor: pointer;
+
+    &--invisible {
+      visibility: hidden;
+    }
+    &--next {
+      color: variables.$alabaster;
+      background-color: variables.$marine-blue;
+    }
+    &--confirm {
+      color: variables.$alabaster;
+      background-color: variables.$purplish-blue;
+    }
+  }
+}
+
+.form-header {
+  &__title {
+    color: variables.$marine-blue;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  &__desc {
+    margin-top: -0.5rem;
+    color: variables.$cool-gray;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+// ------------------------------ form steps -------------------------
+
+.form-step-one {
+  // border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+
+  & input {
+    padding: 0.7rem;
+    border-radius: 0.3rem;
+    border: 1px solid variables.$cool-gray;
+    // border: 1px solid variables.$marine-blue;
+    font-size: 1rem;
+  }
+  &--error{
+    & input {
+        border-color: variables.$strawberry-red;
+        outline-color: variables.$strawberry-red;
+    }
+  }
+  &--error &__error {
+    visibility: visible;
+  }
+  &__error {
+    position: absolute;
+    right: 0;
+    color: variables.$strawberry-red;
+    // outline: 2px solid red;
+    visibility: hidden;
+    // display: inline;
+  }
+}
+
+

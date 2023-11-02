@@ -93,16 +93,16 @@ const Form = () => {
 
   return (
     <section className="form">
-      <aside className="form__aside">
-        <FormSteps currentStep={step} />
-      </aside>
+      {/* <aside className="form__aside"> */}
+      <FormSteps currentStep={step} />
+      {/* </aside> */}
 
-      <div className="form__content">
+      <div className="form-content">
         {formCompleted ? (
           <ThanksGiving />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)}>
-            {step}
+      
             <header className="form-header">
               <h2 className="form-header__title">
                 {formStepsHeader[step]["title"]}
@@ -113,8 +113,11 @@ const Form = () => {
             </header>
             {/* render different form steps here */}
             {steps[step]}
+          </form>
+        )}
+      </div>
 
-            <div className="form-buttons">
+      <div className="form-buttons">
               <button
                 type="button"
                 onClick={handlePrev}
@@ -140,9 +143,6 @@ const Form = () => {
                 />
               )}
             </div>
-          </form>
-        )}
-      </div>
     </section>
   );
 };

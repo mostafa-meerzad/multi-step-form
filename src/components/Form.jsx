@@ -61,6 +61,8 @@ const Form = () => {
       handlePeriod={handlePeriod}
       setValue={setValue}
       errors={errors}
+      selectedPlan={plan}
+      trigger={trigger}
       key={"stepTwo"}
     />,
     <StepThree register={register} period={period} key={"stepThree"} />,

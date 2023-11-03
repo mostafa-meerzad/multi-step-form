@@ -111,7 +111,7 @@
 }
 
 // ------------------------------ form steps -------------------------
-
+// step one ---------------------
 .form-step-one {
   // border: 2px solid red;
   display: flex;
@@ -133,10 +133,10 @@
     // border: 1px solid variables.$marine-blue;
     font-size: 1rem;
   }
-  &--error{
+  &--error {
     & input {
-        border-color: variables.$strawberry-red;
-        outline-color: variables.$strawberry-red;
+      border-color: variables.$strawberry-red;
+      outline-color: variables.$strawberry-red;
     }
   }
   &--error &__error {
@@ -152,4 +152,111 @@
   }
 }
 
+// step two ---------------------
+.form-step-two {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.form-plan {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid variables.$light-gray;
+  border-radius: 0.5rem;
 
+  &__img {
+    width: 3rem;
+  }
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    & input {
+      position: absolute;
+      visibility: hidden;
+      z-index: -10;
+    }
+  }
+  &__title {
+    color: variables.$marine-blue;
+    margin: 0;
+  }
+  &__cost {
+    margin: 0;
+    color: variables.$cool-gray;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  &__free-months {
+    margin: 0;
+    color: variables.$marine-blue;
+    font-size: 0.8rem;
+  }
+
+  &__error {
+    text-align: center;
+    margin: 0.5rem 0;
+    opacity: 0;
+    position: absolute;
+    &--active {
+      position: relative;
+      opacity: 1;
+      color: variables.$strawberry-red;
+    }
+  }
+
+  &--active {
+    background-color: variables.$magnolia;
+    border-color: variables.$marine-blue;
+  }
+  &:hover {
+    background-color: variables.$magnolia;
+  }
+}
+.period-change {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: variables.$magnolia;
+  border-radius: 0.5rem;
+
+  &__btn {
+    background-color: transparent;
+    color: variables.$cool-gray;
+    font-weight: 700;
+    cursor: pointer;
+    &--active {
+      color: variables.$marine-blue;
+    }
+  }
+  &__switch {
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0.3rem;
+    background-color: variables.$marine-blue;
+    border-radius: 1rem;
+    position: relative;
+  }
+  &__core {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background-color: variables.$alabaster;
+    position: relative;
+    transition: transform 300ms ease-in-out;
+
+    &--left {
+      transform: translateX(0%);
+    }
+    &--right {
+      transform: translateX(155%);
+    }
+  }
+}

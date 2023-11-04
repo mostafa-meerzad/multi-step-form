@@ -65,7 +65,12 @@ const Form = () => {
       trigger={trigger}
       key={"stepTwo"}
     />,
-    <StepThree register={register} addons={addons} period={period} key={"stepThree"} />,
+    <StepThree
+      register={register}
+      addons={addons}
+      period={period}
+      key={"stepThree"}
+    />,
     <StepFour
       plan={plan}
       cost={cost}
@@ -94,7 +99,7 @@ const Form = () => {
   };
 
   return (
-    <section className="form">
+    <form onSubmit={handleSubmit(onSubmit)} className="form">
       {/* <aside className="form__aside"> */}
       <FormSteps currentStep={step} />
       {/* </aside> */}
@@ -103,7 +108,7 @@ const Form = () => {
         {formCompleted ? (
           <ThanksGiving />
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)}>
+          < >
       
             <header className="form-header">
               <h2 className="form-header__title">
@@ -115,37 +120,37 @@ const Form = () => {
             </header>
             {/* render different form steps here */}
             {steps[step]}
-          </form>
+          </>
         )}
       </div>
 
       <div className="form-buttons">
-              <button
-                type="button"
-                onClick={handlePrev}
-                className={`form-buttons__btn ${
-                  step === firstStep ? "form-buttons__btn--invisible" : ""
-                }`}
-              >
-                go back
-              </button>
-              {step < lastStep ? (
-                <button
-                  type="button"
-                  onClick={nextHandler}
-                  className="form-buttons__btn form-buttons__btn--next"
-                >
-                  next step
-                </button>
-              ) : (
-                <input
-                  type="submit"
-                  value={"confirm"}
-                  className="form-buttons__btn form-buttons__btn--confirm"
-                />
-              )}
-            </div>
-    </section>
+        <button
+          type="button"
+          onClick={handlePrev}
+          className={`form-buttons__btn ${
+            step === firstStep ? "form-buttons__btn--invisible" : ""
+          }`}
+        >
+          go back
+        </button>
+        {step < lastStep ? (
+          <button
+            type="button"
+            onClick={nextHandler}
+            className="form-buttons__btn form-buttons__btn--next"
+          >
+            next step
+          </button>
+        ) : (
+          <input
+            type="submit"
+            value={"confirm"}
+            className="form-buttons__btn form-buttons__btn--confirm"
+          />
+        )}
+      </div>
+    </form>
   );
 };
 export default Form;

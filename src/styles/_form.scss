@@ -2,7 +2,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  //   min-height: 100svh;
+  min-height: 100svh;
   background-color: variables.$magnolia;
 
   &-content {
@@ -71,6 +71,7 @@
   justify-content: space-between;
   padding: 1rem;
   background-color: variables.$white;
+  bottom: 0;
 
   &__btn {
     padding: 1rem;
@@ -403,5 +404,26 @@
   &__total-cost {
     color: variables.$purplish-blue;
     font-weight: 700;
+  }
+}
+
+// thanks giving -----------------
+
+.form-thanks-giving {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 15rem;
+  padding: 2rem 2rem 0;
+
+  &__img {
+    width: 3.5rem;
+  }
+  &__desc {
+    color: variables.$cool-gray;
+    text-align: center;
+    line-height: 1.5rem;
+    margin-top: 0;
   }
 }

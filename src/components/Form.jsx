@@ -124,32 +124,34 @@ const Form = () => {
         )}
       </div>
 
-      <div className="form-buttons">
+    {
+      !formCompleted &&   <div className="form-buttons">
+      <button
+        type="button"
+        onClick={handlePrev}
+        className={`form-buttons__btn ${
+          step === firstStep ? "form-buttons__btn--invisible" : ""
+        }`}
+      >
+        go back
+      </button>
+      {step < lastStep ? (
         <button
           type="button"
-          onClick={handlePrev}
-          className={`form-buttons__btn ${
-            step === firstStep ? "form-buttons__btn--invisible" : ""
-          }`}
+          onClick={nextHandler}
+          className="form-buttons__btn form-buttons__btn--next"
         >
-          go back
+          next step
         </button>
-        {step < lastStep ? (
-          <button
-            type="button"
-            onClick={nextHandler}
-            className="form-buttons__btn form-buttons__btn--next"
-          >
-            next step
-          </button>
-        ) : (
-          <input
-            type="submit"
-            value={"confirm"}
-            className="form-buttons__btn form-buttons__btn--confirm"
-          />
-        )}
-      </div>
+      ) : (
+        <input
+          type="submit"
+          value={"confirm"}
+          className="form-buttons__btn form-buttons__btn--confirm"
+        />
+      )}
+    </div>
+    }
     </form>
   );
 };

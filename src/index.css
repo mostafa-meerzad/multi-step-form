@@ -1,6 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
+  min-height: 100svh;
   background-color: hsl(217, 100%, 97%);
 }
 .form-content {
@@ -58,6 +59,7 @@
   justify-content: space-between;
   padding: 1rem;
   background-color: hsl(0, 0%, 100%);
+  bottom: 0;
 }
 .form-buttons__btn {
   padding: 1rem;
@@ -361,6 +363,24 @@
 .form-result__total-cost {
   color: hsl(243, 100%, 62%);
   font-weight: 700;
+}
+
+.form-thanks-giving {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 15rem;
+  padding: 2rem 2rem 0;
+}
+.form-thanks-giving__img {
+  width: 3.5rem;
+}
+.form-thanks-giving__desc {
+  color: hsl(231, 11%, 63%);
+  text-align: center;
+  line-height: 1.5rem;
+  margin-top: 0;
 }
 
 body {

@@ -79,6 +79,7 @@
 .form-buttons__btn--confirm {
   color: hsl(231, 100%, 99%);
   background-color: hsl(243, 100%, 62%);
+  border: none;
 }
 
 .form-header__title {
@@ -291,6 +292,75 @@
 }
 .form-addon:hover {
   background-color: hsl(217, 100%, 97%);
+}
+
+.form-step-four {
+  min-height: 15rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-details {
+  flex: 1;
+  background-color: hsl(217, 100%, 97%);
+  border-radius: 0.5rem;
+}
+.form-details__field {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.form-details__field:not(.form-details__field:first-child) {
+  padding-block: 0.4rem;
+}
+.form-details__plan {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  gap: 0.5rem;
+}
+.form-details__plan-title, .form-details__plan-cost {
+  font-weight: 700;
+  color: hsl(213, 96%, 18%);
+}
+.form-details__change-btn {
+  margin-top: -0.3rem;
+  padding: 0;
+  background-color: transparent;
+  text-decoration: underline;
+  font-size: 1rem;
+  color: hsl(231, 11%, 63%);
+  cursor: pointer;
+}
+.form-details__bar {
+  margin-inline: 1rem;
+  background-color: hsl(229, 24%, 87%);
+  border: none;
+  height: 0.5px;
+}
+.form-details__title {
+  color: hsl(231, 11%, 63%);
+}
+.form-details__cost {
+  color: hsl(213, 96%, 18%);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.form-result__desc {
+  color: hsl(231, 11%, 63%);
+}
+.form-result__total-cost {
+  color: hsl(243, 100%, 62%);
+  font-weight: 700;
 }
 
 body {

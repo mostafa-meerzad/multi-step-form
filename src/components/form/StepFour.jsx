@@ -25,6 +25,7 @@ const StepFour = ({ plan, addons, period, cost, handleChange }) => {
             ${cost}/{period === "monthly" ? "mo" : "yr"}
           </span>
         </li>
+        <hr className="form-details__bar"/>
         {/* iterate over the options that was selected in the step-three */}
         {stepThreeData.map(({ title, price }) => {
           if (addons?.[title]) {
@@ -32,21 +33,22 @@ const StepFour = ({ plan, addons, period, cost, handleChange }) => {
             return (
               <li key={title} className="form-details__field">
                 <span className="form-details__title">{title}</span>
-                <span className="form-details__price">
+                <span className="form-details__cost">
                   +${price[period]}/{period === "monthly" ? "mo" : "yr"}
                 </span>
               </li>
             );
           }
         })}
+      </ul>
 
-        <li className="form-details__field">
-          <span className="form-details__title">Total (per {planPeriod})</span>
-          <span className="form-details__total-price">
+
+      <div className="form-result">
+          <span className="form-result__desc">Total (per {planPeriod})</span>
+          <span className="form-result__total-cost">
             ${totalCost}/{period === "monthly" ? "mo" : "yr"}
           </span>
-        </li>
-      </ul>
+        </div>
     </div>
   );
 };

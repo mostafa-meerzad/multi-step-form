@@ -16,7 +16,8 @@ const StepTwo = ({
 
   return (
     <div className="form-step-two">
-      {stepTwoData.map(({ img, price, title, freeMonths }) => (
+     <div className="form-step-two__plans-wrapper">
+     {stepTwoData.map(({ img, price, title, freeMonths }) => (
         <label
           htmlFor={title}
           className={`form-plan ${plan === title ? " form-plan--active" : ""}`}
@@ -45,6 +46,7 @@ const StepTwo = ({
           </div>
         </label>
       ))}
+     </div>
 
       <div className="period-change">
         {/* hidden inputs needed to get more data from the user selection */}

@@ -8,6 +8,11 @@ body {
   min-height: 100svh;
   //   display: grid;
   //   place-content: center;
+  @media all and (min-width: 800px) {
+    display: grid;
+    place-content: center;
+    background-color: variables.$magnolia;
+  }
 }
 
 * {

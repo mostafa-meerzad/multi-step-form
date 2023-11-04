@@ -17,7 +17,7 @@ const FormSteps = ({ currentStep }) => {
           >
             {step}
           </div>
-          <div className="form-step-content">
+          <div className="form-step__content">
             <p className="form-step__title">step {step}</p>
             <p className="form-step__desc">{desc}</p>
           </div>

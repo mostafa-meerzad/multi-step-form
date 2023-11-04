@@ -260,3 +260,74 @@
     }
   }
 }
+
+
+//step three -------------------
+
+.form-step-three{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-addon{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  padding: .8rem;  
+  border: 1px solid variables.$light-gray;
+  border-radius: .5rem;
+  &__check{
+    width: .9rem;
+    height: .9rem;
+    padding: .2rem;
+    border: 1px solid variables.$light-gray;
+    border-radius: .3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img{
+      width: 100%;
+      object-fit: contain;
+    }
+
+    &--active{
+      background-color: variables.$purplish-blue;
+    }
+  }
+
+  &__content-wrapper{
+    flex: 1;
+  }
+  &__title{
+    margin: 0;
+    color: variables.$marine-blue;
+  }
+  &__desc{
+    margin: .5rem 0;
+    color: variables.$cool-gray;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  &__cost{
+    color: variables.$purplish-blue;
+    font-size: .85rem;
+    font-weight: 500;
+  }
+
+  & input{
+    visibility: hidden;
+    position: absolute;
+  }
+
+  &--active{
+    border-color: variables.$marine-blue;
+    background-color: variables.$magnolia;
+  }
+  &:hover{
+    background-color: variables.$magnolia;
+
+  }
+}

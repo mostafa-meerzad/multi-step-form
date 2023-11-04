@@ -230,6 +230,70 @@
   transform: translateX(155%);
 }
 
+.form-step-three {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-addon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  padding: 0.8rem;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 0.5rem;
+}
+.form-addon__check {
+  width: 0.9rem;
+  height: 0.9rem;
+  padding: 0.2rem;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-addon__check img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.form-addon__check--active {
+  background-color: hsl(243, 100%, 62%);
+}
+.form-addon__content-wrapper {
+  flex: 1;
+}
+.form-addon__title {
+  margin: 0;
+  color: hsl(213, 96%, 18%);
+}
+.form-addon__desc {
+  margin: 0.5rem 0;
+  color: hsl(231, 11%, 63%);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.form-addon__cost {
+  color: hsl(243, 100%, 62%);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.form-addon input {
+  visibility: hidden;
+  position: absolute;
+}
+.form-addon--active {
+  border-color: hsl(213, 96%, 18%);
+  background-color: hsl(217, 100%, 97%);
+}
+.form-addon:hover {
+  background-color: hsl(217, 100%, 97%);
+}
+
 body {
   font-family: "Ubuntu", sans-serif;
   padding: 0;

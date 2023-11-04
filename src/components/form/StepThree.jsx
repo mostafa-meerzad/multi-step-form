@@ -2,8 +2,10 @@ import { useState } from "react";
 import { stepThreeData } from "../../data";
 import { checkMark } from "../../assets/icons";
 
-const Addon = ({ title, desc, price, register, period }) => {
-  const [selected, setSelected] = useState(false);
+const Addon = ({ title, desc, price, register, period, addons }) => {
+
+  // addons[title] is either true or false, used as default state to keep selected addons in active sate if user navigates between form-steps back and forth
+  const [selected, setSelected] = useState(addons?.[title]);
 
   return (
     <label
@@ -37,7 +39,7 @@ const Addon = ({ title, desc, price, register, period }) => {
   );
 };
 
-const StepThree = ({ register, period }) => {
+const StepThree = ({ register, period, addons }) => {
   return (
     <div className="form-step-three">
       {stepThreeData.map(({ title, desc, price }) => (
@@ -47,6 +49,7 @@ const StepThree = ({ register, period }) => {
           price={price}
           register={register}
           period={period}
+          addons={addons}
           key={title}
         />
       ))}

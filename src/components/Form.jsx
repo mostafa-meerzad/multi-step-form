@@ -65,7 +65,7 @@ const Form = () => {
       trigger={trigger}
       key={"stepTwo"}
     />,
-    <StepThree register={register} period={period} key={"stepThree"} />,
+    <StepThree register={register} addons={addons} period={period} key={"stepThree"} />,
     <StepFour
       plan={plan}
       cost={cost}

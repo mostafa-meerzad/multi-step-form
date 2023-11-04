@@ -151,8 +151,7 @@
 }
 .form-plan__content-wrapper input {
   position: absolute;
-  visibility: hidden;
-  z-index: -10;
+  left: -100%;
 }
 .form-plan__title {
   color: hsl(213, 96%, 18%);
@@ -283,8 +282,8 @@
   font-weight: 500;
 }
 .form-addon input {
-  visibility: hidden;
   position: absolute;
+  left: -100%;
 }
 .form-addon--active {
   border-color: hsl(213, 96%, 18%);

@@ -177,8 +177,9 @@
 
     & input {
       position: absolute;
-      visibility: hidden;
-      z-index: -10;
+      // visibility: hidden;
+      // z-index: -10;
+      left: -100%;
     }
   }
   &__title {
@@ -318,8 +319,9 @@
   }
 
   & input{
-    visibility: hidden;
+    // visibility: hidden;
     position: absolute;
+    left: -100%;
   }
 
   &--active{

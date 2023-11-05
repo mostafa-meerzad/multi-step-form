@@ -7,6 +7,7 @@ import { useState } from "react";
 import { formStepsHeader } from "../data";
 import FormSteps from "./form/FormSteps";
 import ThanksGiving from "./form/ThanksGiving";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Form = () => {
   const {
@@ -28,15 +29,29 @@ const Form = () => {
   // plan period either monthly or yearly
   const [period, setPeriod] = useState("monthly");
 
+  //animation state
+  const [initialAnimate, setInitialAnimate] = useState({ opacity: 0, x: 100 });
+
+  const [playingAnimate, setPlayingAnimate] = useState({ opacity: 1, x: 0 });
+
   // get values of those inputs that will determine the final cost, period and plan-type
   const addons = getValues("addons");
   const plan = getValues("plan");
   const cost = getValues("cost");
 
-  const handleNext = () =>
+  const handleNext = () => {
     setStep((preState) => (preState < lastStep ? preState + 1 : preState));
-  const handlePrev = () =>
+
+    setPlayingAnimate({ opacity: 1, x: 0 });
+    setInitialAnimate({ opacity: 0, x: 100 });
+  };
+
+  const handlePrev = () => {
     setStep((preState) => (preState > firstStep ? preState - 1 : preState));
+
+    setInitialAnimate({ opacity: 0, x: -100 });
+    setPlayingAnimate({ opacity: 1, x: 0 });
+  };
   // reset form-step to the first step when the user wants to change their plan
   const handleChangePlan = () => setStep(0);
 
@@ -100,58 +115,62 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
-      {/* <aside className="form__aside"> */}
       <FormSteps currentStep={step} />
-      {/* </aside> */}
 
       <div className="form-content">
         {formCompleted ? (
           <ThanksGiving />
         ) : (
-          < >
-      
-            <header className="form-header">
-              <h2 className="form-header__title">
-                {formStepsHeader[step]["title"]}
-              </h2>
-              <p className="form-header__desc">
-                {formStepsHeader[step]["desc"]}{" "}
-              </p>
-            </header>
-            {/* render different form steps here */}
-            {steps[step]}
-          </>
+          <AnimatePresence>
+            <motion.div
+              initial={initialAnimate}
+              animate={playingAnimate}
+              key={step}
+              transition={{ staggerChildren: 0.2 }}
+            >
+              <header className="form-header">
+                <h2 className="form-header__title">
+                  {formStepsHeader[step]["title"]}
+                </h2>
+                <p className="form-header__desc">
+                  {formStepsHeader[step]["desc"]}{" "}
+                </p>
+              </header>
+              {/* render different form steps here */}
+              {steps[step]}
+            </motion.div>
+          </AnimatePresence>
         )}
       </div>
 
-    {
-      !formCompleted &&   <div className="form-buttons">
-      <button
-        type="button"
-        onClick={handlePrev}
-        className={`form-buttons__btn ${
-          step === firstStep ? "form-buttons__btn--invisible" : ""
-        }`}
-      >
-        go back
-      </button>
-      {step < lastStep ? (
-        <button
-          type="button"
-          onClick={nextHandler}
-          className="form-buttons__btn form-buttons__btn--next"
-        >
-          next step
-        </button>
-      ) : (
-        <input
-          type="submit"
-          value={"confirm"}
-          className="form-buttons__btn form-buttons__btn--confirm"
-        />
+      {!formCompleted && (
+        <div className="form-buttons">
+          <button
+            type="button"
+            onClick={handlePrev}
+            className={`form-buttons__btn ${
+              step === firstStep ? "form-buttons__btn--invisible" : ""
+            }`}
+          >
+            go back
+          </button>
+          {step < lastStep ? (
+            <button
+              type="button"
+              onClick={nextHandler}
+              className="form-buttons__btn form-buttons__btn--next"
+            >
+              next step
+            </button>
+          ) : (
+            <input
+              type="submit"
+              value={"confirm"}
+              className="form-buttons__btn form-buttons__btn--confirm"
+            />
+          )}
+        </div>
       )}
-    </div>
-    }
     </form>
   );
 };

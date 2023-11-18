@@ -1,0 +1,570 @@
+@use "./variables";
+.form {
+  min-height: 100svh;
+  background-color: variables.$magnolia;
+  position: relative;
+
+  &-content {
+    position: relative;
+    top: -4.5rem;
+    margin-inline: 1.5rem;
+  }
+
+  &-buttons {
+    margin-block-start: 2rem;
+    height: 3rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 90%;
+  }
+}
+
+.form-steps {
+  height: 9.5rem;
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.7rem;
+
+  background-image: url("/bg-sidebar-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .form-step {
+    &__num {
+      width: 2rem;
+      height: 2rem;
+      display: grid;
+      place-content: center;
+      color: variables.$alabaster;
+      border: 1.5px solid variables.$alabaster;
+      border-radius: 50%;
+
+      font-size: 0.9rem;
+      font-weight: bold;
+
+      &--active {
+        background-color: variables.$light-blue;
+        border-color: variables.$light-blue;
+        color: variables.$marine-blue;
+      }
+    }
+    &__title,
+    &__desc {
+      display: none;
+    }
+  }
+}
+
+.form-content {
+  padding: 1rem 1.5rem 2.5em;
+  border-radius: 0.7rem;
+  background-color: variables.$alabaster;
+  box-shadow: 0px 20px 88px -35px hsl(231, 11%, 63%);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: variables.$white;
+  bottom: 0;
+
+  &__btn {
+    padding: 1rem;
+    background-color: transparent;
+    color: variables.$cool-gray;
+    border-radius: 0.3rem;
+    text-transform: capitalize;
+    font-size: 0.91rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 6.5rem;
+
+    &:hover{
+      color: variables.$marine-blue;
+    }
+
+    &--invisible {
+      visibility: hidden;
+    }
+    &--next {
+      color: variables.$alabaster;
+      background-color: variables.$marine-blue;
+      &:hover{
+        background-color: hsl(213, 96%, 27%);
+        color: variables.$alabaster;
+      }
+    }
+    &--confirm {
+      color: variables.$alabaster;
+      background-color: variables.$purplish-blue;
+      border: none;
+      &:hover{
+        
+        color: variables.$alabaster;
+        background-color:hsl(243, 92%, 70%);
+      }
+    }
+  }
+}
+
+.form-header {
+  &__title {
+    color: variables.$marine-blue;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  &__desc {
+    margin-top: -0.5rem;
+    color: variables.$cool-gray;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+// ------------------------------ form steps -------------------------
+// step one ---------------------
+.form-step-one {
+  // border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+
+  & input {
+    padding: 0.7rem;
+    border-radius: 0.3rem;
+    border: 1px solid variables.$cool-gray;
+    font-size: 1rem;
+  }
+  &--error {
+    & input {
+      border-color: variables.$strawberry-red;
+      outline-color: variables.$strawberry-red;
+    }
+  }
+  &--error &__error {
+    visibility: visible;
+  }
+  &__error {
+    position: absolute;
+    right: 0;
+    color: variables.$strawberry-red;
+    // outline: 2px solid red;
+    visibility: hidden;
+    // display: inline;
+  }
+}
+
+// step two ---------------------
+// .form-step-two {
+.form-step-two__plans-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.form-plan {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid variables.$light-gray;
+  border-radius: 0.5rem;
+
+  &__img {
+    width: 3rem;
+  }
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    & input {
+      position: absolute;
+      // visibility: hidden;
+      // z-index: -10;
+      left: -1000%;
+    }
+  }
+  &__title {
+    color: variables.$marine-blue;
+    margin: 0;
+  }
+  &__cost {
+    margin: 0;
+    color: variables.$cool-gray;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  &__free-months {
+    margin: 0;
+    color: variables.$marine-blue;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  &__error {
+    text-align: center;
+    margin: 0.5rem 0;
+    opacity: 0;
+    position: absolute;
+    &--active {
+      position: relative;
+      opacity: 1;
+      color: variables.$strawberry-red;
+    }
+  }
+
+  &--active {
+    background-color: variables.$magnolia;
+    border-color: variables.$marine-blue;
+  }
+  &:hover {
+    background-color: variables.$magnolia;
+  }
+}
+.period-change {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: variables.$magnolia;
+  border-radius: 0.5rem;
+
+  &__btn {
+    background-color: transparent;
+    color: variables.$cool-gray;
+    font-weight: 700;
+    cursor: pointer;
+    &--active {
+      color: variables.$marine-blue;
+    }
+  }
+  &__switch {
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0.3rem;
+    background-color: variables.$marine-blue;
+    border-radius: 1rem;
+    position: relative;
+  }
+  &__core {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background-color: variables.$alabaster;
+    position: relative;
+    transition: transform 300ms ease-in-out;
+
+    &--left {
+      transform: translateX(0%);
+    }
+    &--right {
+      transform: translateX(155%);
+    }
+  }
+}
+
+//step three -------------------
+
+.form-step-three {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-addon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  padding: 0.8rem;
+  border: 1px solid variables.$light-gray;
+  border-radius: 0.5rem;
+  &__check {
+    width: 0.9rem;
+    height: 0.9rem;
+    padding: 0.2rem;
+    border: 1px solid variables.$light-gray;
+    border-radius: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    &--active {
+      background-color: variables.$purplish-blue;
+    }
+  }
+
+  &__content-wrapper {
+    flex: 1;
+  }
+  &__title {
+    margin: 0;
+    color: variables.$marine-blue;
+  }
+  &__desc {
+    margin: 0.5rem 0;
+    color: variables.$cool-gray;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  &__cost {
+    color: variables.$purplish-blue;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  & input {
+    position: absolute;
+    left: -1000%;
+  }
+
+  &--active {
+    border-color: variables.$marine-blue;
+    background-color: variables.$magnolia;
+  }
+  &:hover {
+    background-color: variables.$magnolia;
+  }
+}
+
+// step four -------------------
+
+.form-step-four {
+  min-height: 15rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-details {
+  flex: 1;
+  background-color: variables.$magnolia;
+  border-radius: 0.5rem;
+  &__field {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    &:not(&:first-child) {
+      padding-block: 0.4rem;
+    }
+  }
+
+  &__plan {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    gap: 0.5rem;
+  }
+  &__plan-title,
+  &__plan-cost {
+    font-weight: 700;
+    color: variables.$marine-blue;
+  }
+  &__change-btn {
+    margin-top: -0.3rem;
+    padding: 0;
+    background-color: transparent;
+    text-decoration: underline;
+    font-size: 1rem;
+    color: variables.$cool-gray;
+    cursor: pointer;
+  }
+
+  &__bar {
+    margin-inline: 1rem;
+    background-color: variables.$light-gray;
+    border: none;
+    height: 0.5px;
+  }
+  &__title {
+    color: variables.$cool-gray;
+  }
+  &__cost {
+    color: variables.$marine-blue;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}
+.form-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  &__desc {
+    color: variables.$cool-gray;
+  }
+  &__total-cost {
+    color: variables.$purplish-blue;
+    font-weight: 700;
+  }
+}
+
+// thanks giving -----------------
+
+.form-thanks-giving {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 15rem;
+  padding: 2rem 2rem 0;
+
+  &__img {
+    width: 3.5rem;
+  }
+  &__desc {
+    color: variables.$cool-gray;
+    text-align: center;
+    line-height: 1.5rem;
+    margin-top: 0;
+  }
+}
+
+@media all and (min-width: 800px) {
+  .form {
+    display: grid;
+    grid-template-columns: 35% auto;
+    grid-template-rows: auto 5rem;
+    gap: 1rem;
+    min-width: 45rem;
+    min-height: 33rem;
+    padding: 1rem;
+    background-color: variables.$alabaster;
+    border-radius: 1rem;
+    position: relative;
+    box-shadow: 0px 20px 88px -35px hsl(231, 11%, 63%);
+
+    &-header {
+      margin-bottom: 2rem;
+    }
+    &-content {
+      top: 0;
+      grid-row: 1/2;
+      grid-column: 2/3;
+      padding: 0;
+    }
+    &-buttons {
+      grid-column: 2/3;
+      grid-row: 2/3;
+      position: relative;
+      top: auto;
+      margin-top: 0;
+    }
+    &-steps {
+      grid-column: 1/2;
+      grid-row: 1/3;
+      z-index: 10;
+    }
+  }
+
+  .form-steps {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+    height: auto;
+    padding: 2rem;
+    background-image: url("/bg-sidebar-desktop.svg");
+    border-radius: 0.6rem;
+
+    .form-step {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+
+      &__num {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1rem;
+      }
+      &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      &__title {
+        display: inline;
+        color: variables.$pastel-blue;
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+      &__desc {
+        display: inline;
+        color: variables.$alabaster;
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .form-content {
+    margin: 0;
+    box-shadow: none;
+    position: relative;
+  }
+
+  .form-buttons {
+    padding-inline: 0;
+    &__btn:first-child {
+      padding-inline: 0;
+      text-align: start;
+    }
+  }
+
+  .form-step-two__plans-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .form-plan {
+    flex-direction: column;
+    min-width: 6.5rem;
+  }
+  .form-details {
+    &__field {
+      margin-block: 0.5rem;
+    }
+  }
+
+  .form-thanks-giving {
+    position: absolute;
+    top: 0;
+    bottom: -22%;
+    padding: 1rem;
+
+    &__img {
+      width: 5rem;
+    }
+    &__title {
+      font-size: 1.9rem;
+    }
+  }
+}

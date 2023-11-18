@@ -92,7 +92,7 @@ const stepThreeData = [
       yearly: 20,
     },
   },
-
+]
 const formStepsHeader = [
   {
     title: "Personal info",
